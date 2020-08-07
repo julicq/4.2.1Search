@@ -1,0 +1,43 @@
+package ru.netology.repository;
+
+import ru.netology.domain.Proposal;
+
+public class Repository {
+    private Proposal[] proposals = new Proposal[0];
+
+    public void add(Proposal item) {
+        int length = proposals.length + 1;
+        Proposal[] tmp = new Proposal[length];
+        System.arraycopy(proposals, 0, tmp, 0, proposals.length);
+        int lastIndex = tmp.length - 1;
+        tmp[lastIndex] = item;
+        proposals = tmp;
+    }
+
+    public <departureAirport, arrivalAirport> Proposal[] findAll() {
+        return proposals;
+    }
+
+    public Proposal[] findById(int id) {
+        for (Proposal proposal : proposals) {
+            if (proposal.getId() == id) {
+                return proposals;
+            }
+        }
+        return null;
+    }
+
+    public Proposal[] removeById(int id) {
+        int length = proposals.length - 1;
+        Proposal[] tmp = new Proposal[length];
+        int idx = 0;
+        for (Proposal proposal : proposals) {
+            if (proposal.getId() != id) {
+                tmp[idx] = proposal;
+                idx++;
+            }
+        }
+        proposals = tmp;
+        return proposals;
+    }
+}
