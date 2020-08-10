@@ -14,7 +14,7 @@ public class Repository {
         proposals = tmp;
     }
 
-    public <departureAirport, arrivalAirport> Proposal[] findAll() {
+    public Proposal[] findAll() {
         return proposals;
     }
 

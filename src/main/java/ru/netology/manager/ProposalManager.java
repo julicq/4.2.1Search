@@ -15,13 +15,13 @@ public class ProposalManager {
         repository.add(product);
     }
 
-    public Proposal[] searchBy(String text, String text2) {
+    public Proposal[] searchBy(String from, String to) {
         Proposal[] result = new Proposal[0];
-        for (Proposal product : repository.findAll()) {
-            if (product.matches(text, text2)) {
+        for (Proposal proposal : repository.findAll()) {
+            if ((from == proposal.getDepartureAirport()) & (to == proposal.getArrivalAirport())) {
                 Proposal[] tmp = new Proposal[result.length + 1];
                 System.arraycopy(result, 0, tmp, 0, result.length);
-                tmp[tmp.length - 1] = product;
+                tmp[tmp.length - 1] = proposal;
                 result = tmp;
             }
         }
