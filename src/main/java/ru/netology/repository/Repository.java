@@ -18,26 +18,4 @@ public class Repository {
         return proposals;
     }
 
-    public Proposal[] findById(int id) {
-        for (Proposal proposal : proposals) {
-            if (proposal.getId() == id) {
-                return proposals;
-            }
-        }
-        return null;
-    }
-
-    public Proposal[] removeById(int id) {
-        int length = proposals.length - 1;
-        Proposal[] tmp = new Proposal[length];
-        int idx = 0;
-        for (Proposal proposal : proposals) {
-            if (proposal.getId() != id) {
-                tmp[idx] = proposal;
-                idx++;
-            }
-        }
-        proposals = tmp;
-        return proposals;
-    }
 }

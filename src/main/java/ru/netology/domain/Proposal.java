@@ -27,7 +27,7 @@ public class Proposal implements Comparable<Proposal> {
     @Override
     public int compareTo(Proposal o) {
         Proposal proposal = (Proposal) o;
-        return price - ((Proposal) o).price;
+        return price - proposal.price;
     }
 
 //    public boolean matches(String search, String text2) {
